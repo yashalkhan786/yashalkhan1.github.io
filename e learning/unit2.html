@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Luxurious+Roman&family=Tangerine&display=swap');
+    </style>
+    <link rel="stylesheet" href="style.css" />
+    <title>home</title>
+</head>
+
+<body
+style=" background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-klsTxr5wP861okbqE3WVxlWzrFSHm8ncqw&usqp=CAU') "
+class="text-white  p-4 sm:text-1xl md:text-2xl lg:text-2xl xl:text-2xl p-2 sm:p-2 md:p-4 lg:p-8">
+<div style=" background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6Rod6Zv5NUMyCPUzTpMMcA8Ib4LlDQL6w4g&usqp=CAU') "
+    class=""> <a href="home.html" class="text-2xl p-1.5 sm:text-2xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl
+    sm:p-2 md:p-6 lg:p-16  text-cyan-300 ">home</a>
+    <a href="unit1.html" class="text-2xl p-1.5 sm:text-2xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl
+    sm:p-2 md:p-6 lg:p-16  text-cyan-300 ">unit 1</a>
+    <a href="unit2.html" class="text-2xl p-1.5 sm:text-2xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl
+    sm:p-2 md:p-6 lg:p-16  text-cyan-300 ">unit 2</a>
+    <a href="unit3.html" class="text-2xl p-1.5 sm:text-2xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl
+    sm:p-2 md:p-6 lg:p-16  text-cyan-300 ">unit 3</a>
+    <a href="about.html" class="text-2xl p-1.5 sm:text-2xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl
+    sm:p-2 md:p-6 lg:p-16  text-cyan-300  ">contact</a>
+</div>
+<pre class="text-2xl p-2 sm:text-2xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl
+            sm:p-2 md:p-6 lg:p-16  text-cyan-300  ">
+
+
+            Q1
+Write function avg() which returns average of two numbers passed to it as a arguments. 
+Pass argument to the function using reference variable. Writ suitable main function.
+
+
+
+        #include <iostream>
+        #include <string.h>
+        #include <stdlib.h>
+        using namespace std;
+        float avg(int &c,int& d);
+        int main()
+        {
+        int a=1;int b=2;
+        cout<<"average of a and b is "<<avg(a,b);
+        return 0;
+        }
+        8
+        float avg(int &c,int& d)
+        {
+        return((float(c)+d)/2);
+        }
+        Write function avg() which returns average of two numbers passed to it as an
+        arguments. Pass argument to the function using pointers. Write suitable
+        main function.
+        #include <iostream>
+        #include <string.h>
+        #include <stdlib.h>
+        using namespace std;
+        float avg(int *c,int* d);
+        int main()
+        {
+        int a=1;int b=2;
+        cout<<"average of a and b is "<<avg(&a,&b);
+        return 0;
+        }
+        float avg(int *c,int* d)
+        {
+        return((float(*c)+*d)/2);
+        }
+
+
+
+
+        Q2
+Write functions: (i)getdata() to read n integer numbers from the keyboard
+and store these numbers in an array. (ii)Search() to search for a given
+number in an array of n integer numbers. If the search is
+successful the function returns the position of the element in the array.
+9
+Otherwise it returns a value -1.Write a suitable main program.
+
+
+
+        #include <iostream>
+        using namespace std;
+        int * getdata(int *b);
+        int Search(int ,int*);
+        int main()
+        {
+        int a[5], no;
+        int*c=getdata(a);
+        cout <<"enter number to be searched";
+        cin>>no;
+        cout<<Search(no,c);
+        }
+        int * getdata(int *b)
+        {
+        for(int i=0;i<5;i++)
+        {
+        cout<<"enter the no";
+        cin>>b[i];
+        }
+        return b;
+        }
+        int Search(int x,int *g)
+        10
+        {
+        for(int i=0;i<5;i++)
+        {
+        if(g[i]==x)
+        return i;
+        }
+        return -1;
+        }
+
+
+
+
+        Q
+ 3 Write a class Arithmetic having two integer data members.
+ Add member following member functions add ( ) which returns addition of two data
+ members, div ( ) which returns division of two data members to the class. Declare
+ suitable default and parametric constructor in class. Write suitable main function to
+ demonstrate use of function declared in class.
+
+
+
+
+        #include <iostream>
+        using namespace std;
+        class Arithmetic
+        {
+        int x, y;
+        public:
+        Arithmetic(int a ,int b)
+        {
+        x=a;y=b;
+        }
+        int add()
+        {
+        11
+        return(x+y);
+        }
+        float div()
+        {
+        return(float(x)/y);
+        }
+        };
+        int main()
+        {
+        Arithmetic obj(1,2);
+        cout<<"Addition is"<<obj.add()<<endl;
+        cout<<"division is"<<obj.div();
+        }
+
+
+
+
+        Q4
+ What do you mean by constructor and destructor ?What are different types
+ of constructer? Explain with the help of suitable program.
+ Constructors in C++
+ What is constructor?
+
+
+ A constructor is a member function of a class which initializes objects of a
+ class. In C++, Constructor is automatically called when object(instance of
+ class) create. It is special member function of the class.
+ Type of constructor
+ Default Constructor.
+     Copy Constructor.
+ Static Constructor.
+ 12
+
+
+        Private Constructor.
+        How constructors are different from a normal member function?
+        A constructor is different from normal functions in following ways:
+        Constructor has same name as the class itself
+        Constructors don’t have return type
+        A constructor is automatically called when an object is created.
+        If we do not specify a constructor, C++ compiler generates a default
+        constructor for us (expects no parameters and has an empty body).
+        Destructors in C++
+        What is destructor?
+        Destructor is a member function which destructs or deletes an object.
+        When is destructor called?
+        A destructor function is called automatically when the object goes out of
+        scope:
+        (1) the function ends
+        (2) the program ends
+        (3) a block containing local variables ends
+        (4) a delete operator is called
+        How destructors are different from a normal member function?
+        Destructors have same name as the class preceded by a tilde (~)
+        Destructors don’t take any argument and don’t return anything
+        EXAMPLE
+
+
+        
+        class String
+        {
+        private:
+        char *s;
+        int size;
+        public:
+        String(char *); // constructor
+        13
+        ~String(); // destructor
+        };
+        String::String(char *c)
+        {
+        size = strlen(c);
+        s = new char[size+1];
+        strcpy(s,c);
+        }
+        String::~String()
+        {
+        delete []s;
+        }
+        Q
+        5 Write a class Arithmetic having two integer data members.
+        Add member following member functions add ( ) which returns addition of two data
+        members, div ( ) which returns division of two data members to the class. Declare
+        suitable default and parametric constructor in class. Write suitable main function to
+        demonstrate use of function declared in class.
+        #include <iostream>
+        using namespace std;
+        class Arithmetic
+        {
+        int x, y;
+        public:
+        14
+        Arithmetic(int a ,int b)
+        {
+        x=a;y=b;
+        }
+        int add()
+        {
+        return(x+y);
+        }
+        float div()
+        {
+        return(float(x)/y);
+        }
+        };
+        int main()
+        {
+        Arithmetic obj(1,2);
+        cout<<"Addition is"<<obj.add()<<endl;
+        cout<<"division is"<<obj.div();
+        }
+        Q
+        6 What do you mean by constructor and destructor ?What are different types
+        of constructer? Explain with the help of suitable program.
+        Constructors in C++
+        What is constructor?
+        A constructor is a member function of a class which initializes objects of a
+        class. In C++, Constructor is automatically called when object(instance of
+        15
+        class) create. It is special member function of the class.
+        Type of constructor
+        Default Constructor.
+        Parametrized Constructor.
+        Copy Constructor.
+        Static Constructor.
+        Private Constructor.
+        How constructors are different from a normal member function?
+        A constructor is different from normal functions in following ways:
+        Constructor has same name as the class itself
+        Constructors don’t have return type
+        A constructor is automatically called when an object is created.
+        If we do not specify a constructor, C++ compiler generates a default
+        constructor for us (expects no parameters and has an empty body).
+        Destructors in C++
+        What is destructor?
+        Destructor is a member function which destructs or deletes an object.
+        When is destructor called?
+        A destructor function is called automatically when the object goes out of
+        scope:
+        (1) the function ends
+        (2) the program ends
+        (3) a block containing local variables ends
+        (4) a delete operator is called
+        How destructors are different from a normal member function?
+        Destructors have same name as the class preceded by a tilde (~)
+        Destructors don’t take any argument and don’t return anything
+        EXAMPLE
+        class String
+        16
+        {
+        private:
+        char *s;
+        int size;
+        public:
+        String(char *); // constructor
+        ~String(); // destructor
+        };
+        String::String(char *c)
+        {
+        size = strlen(c);
+        s = new char[size+1];
+        strcpy(s,c);
+        }
+        String::~String()
+        {
+        delete []s;
+        }
+        Q
+        7 Define a class student with the following specification
+        Private members of class student
+        admno integer
+        sname 20 character
+        eng. math, science float
+        total float
+        ctotal() a function to calculate eng + math + science with float return
+        type.
+        17
+        Public member function of class student
+        Takedata() Function to accept values for admno, sname, eng, science and
+        invoke ctotal() to calculate total.
+        Showdata() Function to display all the data members on the screen
+        #include <iostream>
+        using namespace std;
+        class Student
+        {
+        private:
+        int admno;
+        char sname[20];
+        float eng, math, science;
+        float total;
+        float ctotal( )
+        {
+        return(eng + math + science);
+        }
+        public:
+        void Takedata()
+        {
+        cout<<"Enter admno, sname, eng, science ,math"<<endl ;
+        cin>>admno>> sname>> eng>> science>>math;
+        total=ctotal( );
+        }
+        void Showdata()
+        18
+        {
+        cout<<"Data members are"<<endl ;
+        cout<< "Sname eng. math, science and total is"<<endl;
+        cout<<sname<<" "<<eng<<" "<< math<<" "<< science<<" " << total<<" ";
+        }
+        };
+        int main()
+        {
+        Student obj;
+        obj.Takedata() ;
+        obj.Showdata() ;
+        }
+        Q
+        8 Define a class REPORT with the following specification:
+        Private members :
+        adno 4 digit admission number
+        name 20 characters
+        marks an array of 5 floating point values
+        average average marks obtained
+        GETAVG() a function to compute the average obtained in five subject
+        Public members:
+        READINFO() function to accept values for adno, name, marks. Invoke the
+        function GETAVG()
+        DISPLAYINFO() function to display all data members of report on the screen.
+        class Report
+        {
+        private:
+        int adno;
+        19
+        char name [20];
+        float marks[5];
+        float average;
+        float GETAVG()
+        {
+        int sum=0;
+        for(int i=0;i<5;i++)
+        {
+        sum=sum+marks[i] ;
+        }
+        return(sum/5.0);
+        }
+        public:
+        void READINFO()
+        {
+        cout<<"enter adno and name"<<endl;
+        cin>>adno>>name;
+        for(int i=0;i<5;i++)
+        {
+        cout<<"enter the marks of subject no "<<i<<endl;
+        cin>>marks[i];
+        }
+        average=GETAVG();
+        }
+        void DISPLAYINFO()
+        20
+        {
+        cout<<"name is " <<name<<endl;
+        cout<<"marks are"<<endl;
+        for(int i=0;i<5;i++)
+        {
+        cout<<" marks of subject no "<<i<<endl;
+        cout<<marks[i]<<endl;
+        }
+        cout<<"average is " <<average<<endl;
+        }
+        };
+        int main()
+        {
+        Report obj;
+        obj.READINFO();
+        obj.DISPLAYINFO();
+        return 0;
+        }
+        Q
+        9 Write the definition for a class called Rectangle that has floating point data
+        members length and width. The class has the following member functions:
+        void setlength(float) to set the length data member
+        void setwidth(float) to set the width data member
+        float perimeter() to calculate and return the perimeter of the rectangle
+        float area() to calculate and return the area of the rectangle
+        void show() to display the length and width of the rectangle
+        int sameArea(Rectangle) that has one parameter of type Rectangle. sameArea
+        returns 1 if the two Rectangles have the same area, and returns 0 if they
+        don’t. Write suitable main program to demonstrate the use of function
+        21
+        declared.
+        #include <iostream>
+        using namespace std;
+        class Rectangle
+        {
+        private:
+        float length;
+        float width;
+        public:
+        void setlength(float l)
+        {
+        length=l;
+        }
+        void setwidth(float w)
+        {
+        width=w;
+        }
+        float perimeter()
+        {
+        //return(2*widht + 2*length);
+        float x=2*width+2*length;
+        return x;
+        }
+        22
+        float area ()
+        {
+        return(width*length);
+        }
+        void show()
+        {
+        cout<<"length and width is"<<endl;
+        cout<<length<<width<<endl;
+        }
+        int sameArea(Rectangle temp)
+        {
+        if(temp.area()==area())
+        return 1;
+        else
+        return 0;
+        }
+        };
+        int main()
+        {
+        Rectangle obj,obj1;
+        obj.setlength(2);
+        obj.setwidth(5);
+        cout<<"Perimeter of rectangle is"<<obj.perimeter()<<endl;
+        cout<<"Area of rectangle is "<<obj.area()<<endl;
+        obj1.setlength(5);
+        23
+        obj1.setwidth(2);
+        if(obj1.sameArea(obj))
+        cout<<"two tectangles have same area"<<endl;
+        else
+        cout<<"two tectangles do not have same area"<<endl;
+        }
+        Q
+        10 Write a program to print 1 to 10 numbers using recursion.
+        #include<iostream>
+        #include<cstring>
+        using namespace std;
+        void print (int i)
+        {
+        cout<<i<<endl;
+        if(i<10)
+        print(++i);
+        }
+        int main ()
+        {
+        print(0);
+        }
+    </pre>
+     
+</body>
+
+</html>

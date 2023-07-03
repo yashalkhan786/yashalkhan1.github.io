@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-klsTxr5wP861okbqE3WVxlWzrFSHm8ncqw&usqp=CAU');
+    </style>
+    <link rel="stylesheet" href="style.css" />
+    <title>home</title>
+</head>
+
+<body
+    style=" background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-klsTxr5wP861okbqE3WVxlWzrFSHm8ncqw&usqp=CAU') "
+    class="text-white  p-4 sm:text-1xl md:text-2xl lg:text-2xl xl:text-2xl p-2 sm:p-2 md:p-4 lg:p-8">
+    <div style=" background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6Rod6Zv5NUMyCPUzTpMMcA8Ib4LlDQL6w4g&usqp=CAU') "
+        class=""> <a href="home.html" class="text-2xl p-1.5 sm:text-2xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl
+        sm:p-2 md:p-6 lg:p-16  text-cyan-300 ">home</a>
+        <a href="unit1.html" class="text-2xl p-1.5 sm:text-2xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl
+        sm:p-2 md:p-6 lg:p-16  text-cyan-300 ">unit 1</a>
+        <a href="unit2.html" class="text-2xl p-1.5 sm:text-2xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl
+        sm:p-2 md:p-6 lg:p-16  text-cyan-300 ">unit 2</a>
+        <a href="unit3.html" class="text-2xl p-1.5 sm:text-2xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl
+        sm:p-2 md:p-6 lg:p-16  text-cyan-300 ">unit 3</a>
+        <a href="about.html" class="text-2xl p-1.5 sm:text-2xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl
+        sm:p-2 md:p-6 lg:p-16  text-cyan-300  ">contact</a>
+    </div>
+
+    <pre class="text-2xl p-2 sm:text-2xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl
+    sm:p-2 md:p-6 lg:p-16  text-cyan-300  ">
+
+Q
+
+Create a class complex having two integer data members real and
+ img representing real andimaginary part of complex number. 
+Add suitable constructor and functions to the class to
+overload ’-’ ,’++’operators. Write suitable main program 
+to declare hundred object of class complex and find largest 
+complex number among them. To compare two objects use the concept
+of operator overloading.
+
+
+
+#include <iostream>
+using namespace std;
+class complex
+{
+private:
+float real;
+float img;
+public:
+complex(float x=0 , float y=0)
+{
+real=x;
+img =y;
+}
+void display()
+{
+cout<<"Complex no is"<<endl;
+cout<<real<<"+ j"<<img<<endl;
+}
+26
+complex operator +(complex x)
+{
+complex t;
+t.real=real+x.real;
+t.img=img+x.img;
+return t;
+}
+complex operator -(complex x)
+{
+complex t;
+t.real=real-x.real;
+t.img=img-x.img;
+return t;
+}
+complex operator ++()
+{
+real=real++;
+img=img++;
+return *this;
+}
+bool operator >(complex x)
+{
+if(real>x.real)
+return 1;
+else if(img>x.img)
+return 1;
+else
+return 0;
+}
+};
+int main()
+{
+complex obj(10,15),obj1(20,30),obj3;
+if(obj>obj1)
+obj.display();
+obj3=obj+obj1;
+obj3.display();
+++ obj3;
+obj3.display();
+return 0;
+}
+
+
+Q Create a class sample having one float data member. 
+Add suitable constructor and functions to
+the class to overload ‘++’ (post increment),’<’ operators. 
+Write suitable main program.
+
+
+
+#include <iostream>
+using namespace std;
+class sample
+{
+private :
+int x ,y;
+public :
+sample (int a=0,int b=0)
+{
+x=a;
+y=b;
+}
+sample operator ++()
+{
+x=x++;
+y=y++;
+return * this;
+}
+void display()
+{
+cout<<"x ="<<x<<endl<<"y= "<<y<<endl;
+}
+bool operator > (sample d)
+{
+if ( x > d.x && y > d.y )
+{
+return true;
+}
+else
+return false;
+}
+};
+int main()
+{
+sample a (10,10);
+sample b (20,20);
+//++a;
+a.display();
+++b;
+b.display();
+return 0;
+}
+
+
+Q
+
+Create a class Time having three integer data members s,m,h to
+ represent time at any instant in
+terms of seconds, minutes and hours respectively. 
+Add suitable constructor and functions to the
+class to overload ’-’ ,’++’operators.
+
+
+
+#include <iostream>
+#include <conio.h>
+#include <cstdlib>
+using namespace std;
+class TIME
+{
+private :
+int h;int m;int s;
+public :
+TIME (int a=0,int b=0,int c=0)
+{
+h=a;m=b;s=c;
+if(h>24||s>60||m>60)
+{
+cout<<"enter correct value of h,m,s ifor constructor";
+getch();
+exit(0);
+}
+}
+TIME operator +(TIME d)
+{
+TIME temp;
+temp.s=d.s+s;
+temp.m=d.m+m;
+temp.h=d.h+h;
+if(temp.s>60)
+{
+temp.s=(temp.s-60);
+temp.m=temp.m+1;
+}
+if(temp.m>60)
+{
+temp.m=(temp.m-60);
+temp.h=temp.h+1;
+}
+if(temp.h>24)
+{
+temp.h=(temp.h-24);
+}
+return temp;
+}
+void display()
+{
+cout<<"h ="<<h<<endl;
+cout<<"m ="<<m<<endl;
+29
+cout<<"s ="<<s<<endl;
+}
+};
+int main()
+{
+TIME a (10,30,61);
+TIME b (20,30,30),c;
+c=a+b;
+c.display();
+return 0;
+}
+Q
+5
+Create a class Time having three integer data members 
+s,m,h to represent time at any instant in
+terms of seconds, minutes and hours respectively. 
+Add suitable constructor and functions to the
+class to overload ’--’ ,’<’operators. Write suitable main program.
+#include <iostream>
+#include <conio.h>
+#include <cstdlib>
+using namespace std;
+class TIME
+{
+private :
+int h;int m;int s;
+public :
+TIME (int a=0,int b=0,int c=0)
+{
+h=a;m=b;s=c;
+if(h>24||s>60||m>60)
+{
+cout<<"enter correct value of h,m,s ifor constructor";
+getch();
+exit(0);
+}
+}
+TIME operator +(TIME d)
+{
+TIME temp;
+temp.s=d.s+s;
+temp.m=d.m+m;
+temp.h=d.h+h;
+if(temp.s>60)
+{
+temp.s=(temp.s-60);
+temp.m=temp.m+1;
+}
+if(temp.m>60)
+30
+{
+temp.m=(temp.m-60);
+temp.h=temp.h+1;
+}
+if(temp.h>24)
+{
+temp.h=(temp.h-24);
+}
+return temp;
+}
+void display()
+{
+cout<<"h ="<<h<<endl;
+cout<<"m ="<<m<<endl;
+cout<<"s ="<<s<<endl;
+}
+};
+int main()
+{
+TIME a (10,30,61);
+TIME b (20,30,30),c;
+c=a+b;
+c.display();
+return 0;
+}
+Q
+6
+What do you mean by function overloading? Explain with the help of suitable
+example.
+C++ provides a special function to change the current 
+functionality of some operators within
+its class which is often called as operator overloading.
+ Operator Overloading is the method
+by which we can change the function of 
+some specific operators to do some different task.
+Example of overloading of operator’+’
+#include<iostream>
+using namespace std;
+class sample
+{
+private:
+int x,y;
+public:
+sample(int a=0,int b=0)
+{
+x=a;
+y=b;
+31
+}
+sample operator +(sample d)
+{
+sample temp;
+temp.x=d.x+x;
+temp.y=d.y+y;
+return temp;
+}
+void display()
+{
+cout<<"x= "<<x<<endl<<"y= "<<y<<endl;
+}
+};
+int main ()
+{
+sample a(10,20),b(20,20),c;
+c= a+b;
+c.display();
+return 0;
+}
+Q
+7
+What are different types of inheritance?
+ Write suitable program to demonstrate the
+concept of hierarchical inheritance.
+C++ supports six types of inheritance as follows:
+ Single Inheritance.
+ Multilevel Inheritance.
+ Multiple Inheritance.
+ Heirarchical Inheritance.
+ Hybrid Inheritance.
+#include<iostream>
+#include<cstring>
+using namespace std;
+class A {
+public:
+void display()
+{
+cout<<" function of class A "<<endl;
+}
+};
+class B:public A{
+public:
+32
+void display2()
+{
+cout<<" function of class B "<<endl;
+}
+};
+class C:public A{
+};
+int main ()
+{
+B obj;
+obj.display();
+C obj1;
+obj1.display();
+}
+Q
+8
+What does inheritance means in c++? What are different 
+forms of inheritance?Give an example
+of each.
+Inheritance in Object Oriented Programming can be described 
+as a process of creating new classes
+from existing classes. New classes
+ inherit some of the properties and behavior of the existing
+classes. An existing class that is "parent" of a new class is called a base class.
+ ... Inheritance is a
+technique of code reuse.
+C++ supports six types of inheritance as follows:
+ Single Inheritance.
+ Multilevel Inheritance.
+ Multiple Inheritance.
+ Heirarchical Inheritance.
+ Hybrid Inheritance.
+#include<iostream>
+#include<cstring>
+using namespace std;
+class A {
+public:
+void display()
+{
+cout<<" function of class A "<<endl;
+}
+33
+};
+class B:public A{
+public:
+void display2()
+{
+cout<<" function of class B "<<endl;
+}
+};
+class C:public A{
+};
+int main ()
+{
+B obj;
+obj.display();
+C obj1;
+obj1.display();
+}
+Q
+9
+How private, protected and public data members of class are different from each other. Explain
+with the help of suitable example.
+Access modifiers in C++ class defines the access control rules. C++ has 3 new keywords
+introduced, namely,
+1. public
+2. private
+3. protected
+Public Access Modifier in C++ 
+Public, means all the class members declared under public will be available to everyone.
+The data members and member functions declared public can be accessed by other classes
+too. Hence there are chances that they might change them. So the key members must not be
+declared public.
+class PublicAccess
+{
+// public access modifier
+public:
+int x; // Data Member Declaration
+void display(); // Member Function decaration
+34
+}
+Private Access Modifier in C++ 
+Private keyword, means that no one can access the class members declared private, outside
+that class. If someone tries to access the private members of a class, they will get a compile
+time error. By default class variables and member functions are private.
+class PrivateAccess
+{
+// private access modifier
+private:
+int x; // Data Member Declaration
+void display(); // Member Function decaration
+}
+Protected Access Modifier in C++ 
+Protected, is the last access specifier, and it is similar to private, it makes class member
+inaccessible outside the class. But they can be accessed by any subclass of that class. (If
+class A is inherited by class B, then class B is subclass of class A. We will learn about
+inheritance later.)
+class ProtectedAccess
+{
+// protected access modifier
+protected:
+int x; // Data Member Declaration
+void display(); // Member Function decaration
+}
+Q
+10
+What do you mean by polymorphism? Write suitable program to demonstrate the
+concept of polymorphism.
+The word polymorphism means having many forms. Typically, polymorphism occurs when
+there is a hierarchy of classes and they are related by inheritance. C++ polymorphism means
+that a call to a member function will cause a different function to be executed depending on
+the type of object that invokes the function.
+Compile time polymorphism: This type of polymorphism is achieved by function overloading
+or operator overloading.
+Function Overloading: When there are multiple functions with same name but different
+parameters then these functions are said to be overloaded. Functions can be overloaded by
+change in number of arguments or/and change in type of arguments.
+#include <bits/stdc++.h>
+using namespace std;
+class Geeks
+{
+public:
+// function with 1 int parameter
+void func(int x)
+35
+{
+cout << "value of x is " << x << endl;
+}
+// function with same name but 1 double parameter
+void func(double x)
+{
+cout << "value of x is " << x << endl;
+}
+// function with same name and 2 int parameters
+void func(int x, int y)
+{
+cout << "value of x and y is " << x << ", " << y << endl;
+}
+};
+int main() {
+Geeks obj1;
+// Which function is called will depend on the parameters passed
+// The first 'func' is called
+obj1.func(7);
+// The second 'func' is called
+obj1.func(9.132);
+// The third 'func' is called
+obj1.func(85,64);
+return 0;
+}
+Operator Overloading: C++ also provide option to overload operators. For example, we can
+make the operator (‘+’) for string class to concatenate two strings. We know that this is the
+addition operator whose task is to add two operands. So a single operator ‘+’ when placed
+between integer operands , adds them and when placed between string operands,
+concatenates them.
+Runtime polymorphism: This type of polymorphism is achieved by Function Overriding.
+ Function overriding on the other hand occurs when a derived class has a definition for
+one of the member functions of the base class. That base function is said to be
+overridden.
+// C++ program for function overriding
+#include <bits/stdc++.h>
+using namespace std;
+36
+class base
+{
+public:
+virtual void print ()
+{ cout<< "print base class" <<endl; }
+void show ()
+{ cout<< "show base class" <<endl; }
+};
+class derived:public base
+{
+public:
+void print () //print () is already virtual function in derived
+class, we could also declared as virtual void print () explicitly
+{ cout<< "print derived class" <<endl; }
+void show ()
+{ cout<< "show derived class" <<endl; }
+};
+//main function
+int main()
+{
+base *bptr;
+derived d;
+bptr = &d;
+//virtual function, binded at runtime (Runtime polymorphism)
+bptr->print();
+37
+// Non-virtual function, binded at compile time
+bptr->show();
+return 0;
+}
+Q
+10
+Write a C++ program for calculating the area of rectangle and circle using run time
+polymorphism
+#include<iostream.h>
+#include<conio.h>
+Using namespace std;
+class shape
+{
+protected:
+double x,y;
+public:
+void getdata( )
+{
+cout <<"enter the 2 parameters ";
+cin>>x>>y;
+}
+virtual void display_area( )
+{
+cout<<"the 2 parameters are "<<x<<y;
+}
+};
+class rectangle: public shape
+{
+public:
+void display_area( )
+{
+double area=x*y;
+cout<<"area of rectangle is"<<area;
+}
+};
+class traingle:public shape
+{
+public:
+void display_area( )
+{
+double_ area=(1/2*x*y)
+cout<<"area of traingle is"<<area;
+}
+};
+void main( )
+{
+shapes;
+shape*ptr;
+38
+rectangle r;
+traingle t;
+ptr=&r;
+ptr_>getdata( );
+ptr_>display_area( );
+ptr=&t;
+ptr_>getdata( );
+ptr_>displayt_area( );
+}
+What do you mean by friend function how it is different from other member
+functions of class.
+Explain with the help of suitable example.
+Friend Function Like friend class, a friend function can be given special grant to access
+private and protected members. A friend function can be:
+a) A method of another class
+b) A global function
+class Node {
+private:
+int key;
+Node* next;
+};
+Following are some important points about friend functions and classes:
+1) Friends should be used only for limited purpose. too many functions or external classes
+are declared as friends of a class with protected or private data, it lessens the value of
+encapsulation of separate classes in object-oriented programming.
+2) Friendship is not mutual. If class A is a friend of B, then B doesn’t become a friend of A
+automatically.
+3) Friendship is not inherited
+class A {
+private:
+int a;
+public:
+39
+A() { a = 0; }
+friend class B; // Friend Class
+};
+class B {
+private:
+int b;
+public:
+void showA(A& x)
+{
+// Since B is friend of A, it can access
+// private members of A
+std::cout << "A::a=" << x.a;
+}
+};
+int main()
+{
+A a;
+B b;
+b.showA(a);
+return 0;
+}
+Output:
+A::a=0</pre>
+
+</body>
+
+</html>
